@@ -258,12 +258,14 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 
 ```json
 {
-  "id": 1,
-  "name": "ProjectX",
-  "status": "Active",
-  "attributes": {
-    "Department": "IT",
-    "Start Date": "2024-12-25"
+  "data": {
+    "id": 1,
+    "name": "ProjectX",
+    "status": "Active",
+    "attributes": {
+      "Department": "IT",
+      "Start Date": "2024-12-25"
+    }
   }
 }
 ```
@@ -285,7 +287,7 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 ```json
 {
   "message": "Project updated successfully",
-  "project": {
+  "data": {
     "id": 1,
     "name": "Updated Project",
     "status": "Completed"
@@ -347,7 +349,7 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 ```json
 {
   "message": "Attribute created successfully",
-  "attribute": {
+  "data": {
     "id": 3,
     "name": "Budget",
     "type": "number"
@@ -371,7 +373,11 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 
 ```json
 {
-  "message": "Attribute updated successfully"
+  "message": "Attribute updated successfully",
+  "data": {
+    "name": "New Budget",
+    "type": "number"
+  }
 }
 ```
 
@@ -409,7 +415,7 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 ```json
 {
   "message": "Timesheet created successfully",
-  "timesheet": {
+  "data": {
     "id": 1,
     "task_name": "Develop API",
     "date": "2025-01-01",
@@ -453,7 +459,11 @@ Postman Documentation: https://documenter.getpostman.com/view/6469965/2sAYkAQhnP
 
 ```json
 {
-  "message": "Timesheet updated successfully"
+  "message": "Timesheet updated successfully",
+  "data": {
+    "task_name": "Updated Task",
+    "hours": 5
+  }
 }
 ```
 
