@@ -116,6 +116,62 @@ GET /api/projects?filters[status]=Active&filters[start_date][>]=2024-01-01
 }
 ```
 
+Here's how you can add **dynamic pagination** to your API documentation:
+
+---
+
+### **📜 Pagination**
+
+All `GET` endpoints that return lists support pagination.
+
+#### **Usage**
+
+- Use the `?paginate=x` query parameter to specify the number of items per page.
+- Use the `?paginate=all` to return all the records without pagination.
+- If omitted, the API returns the default pagination record per page.
+
+#### **Example Requests**
+
+```
+GET /api/projects?paginate=10
+GET /api/projects?filters[status]=Active&paginate=5
+GET /api/timesheets?paginate=15?page=2
+GET /api/attributes?paginate=all
+```
+
+#### **Example Paginated Response**
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "ProjectX",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "name": "ProjectY",
+      "status": "Completed"
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "last_page": 1,
+    "per_page": 15,
+    "from": 1,
+    "to": 4,
+    "total": 4
+  }
+}
+```
+
+#### **Notes**
+
+- **`current_page`**: The current page number.
+- **`per_page`**: Number of records per page.
+- **`total`**: Total number of records.
+
 ---
 
 # **📡 API Documentation**
