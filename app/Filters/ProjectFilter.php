@@ -3,13 +3,16 @@
 namespace App\Filters;
 
 use App\Models\Attribute;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Builder;
 
 class ProjectFilter extends QueryFilter
 {
     protected function applyFilter(string $field, mixed $value): void
     {
-        if (in_array($field, ['name', 'status'])) {
+        $standardFields = (new Project())->getFillable();
+
+        if (in_array($field, $standardFields)) {
             parent::applyFilter($field, $value);
 
             return;
